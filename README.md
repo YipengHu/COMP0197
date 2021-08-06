@@ -1,5 +1,5 @@
-# Introduction to Deep Learning Module Repository
-UCL Computer Science Module COMP0090
+# Introduction to Deep Learning
+Tutorials and other learning materials for UCL Module [COMP0090 Introduction to Deep Learning](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-deep-learning/COMP0090), Term 1 (Autumn), 2021-22 Academic Year
 
 
 **Module Lead** Yipeng Hu <yipeng.hu@ucl.ac.uk>
