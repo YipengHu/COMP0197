@@ -76,8 +76,5 @@ python visualise.py
 [Ultrasound image simulation](tutorials/gan)
 
 
-## 3. Formative assessment
-A list of tasks are detailed in the [Formative Assessment](docs/formative.md). Complete them for individual tutorials.
-
-## 4. Reading list
-A collection of books and research papers, relevant to deep learning for medical image analysis, is provided in the [Reading List](docs/reading.md).
+## 3. Reading list
+A collection of books and research papers is provided in the [Reading List](docs/reading.md).
