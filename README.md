@@ -1,5 +1,6 @@
 # Introduction to Deep Learning
-Tutorials and other learning materials for UCL Module [COMP0090 Introduction to Deep Learning](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-deep-learning/COMP0090), Term 1 (Autumn), 2021-22 Academic Year
+UCL Module [COMP0090 Introduction to Deep Learning](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-deep-learning/COMP0090)  
+>Term 1 (Autumn), 2021-22 Academic Year
 
 
 **Module Lead** Yipeng Hu <yipeng.hu@ucl.ac.uk>
@@ -13,23 +14,30 @@ Tutorials and other learning materials for UCL Module [COMP0090 Introduction to 
 
 ## 1. Development environment
 
-### Python and conda environment
-The tutorials require a few dependencies, numpy, matplotlib, in addition to one of the two deep learning libraries. Individual tutorials may also require other libraries which will be specified in the readme.md in individual tutorial folders (see links below). Conda is recommended to manage the required dependencies. 
-
-It is not mandatory, in tutorials or assessed coursework, to use any specific development, package or environment management tools. However, technical support in this module is available for the setups detailed in [Supported Development Environment](docs/env.md). 
+### Python
+The tutorials require a few dependencies, numpy, matplotlib, in addition to one of the two deep learning libraries. Individual tutorials may also require other libraries which will be specified in the readme.md in individual tutorial folders (see links below). 
 
 ### Deep learning libraries
-Module tutorials are implemented in both [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/). 
+Module tutorials are implemented in Python with both [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/). 
 
-Learning materials for TensorFlow for Medical Imaging are recommended in [Learning TensorFlow for Medical Imaging](docs/tensorflow.md).
+### Technical support
+Conda is recommended to manage the required dependencies and libraries. It is not mandatory, in tutorials or assessed coursework, to use any specific development, package or environment management tools. However, technical support will be available with the tested development environment - see the [supported development environment for Python].
 
-Learning materials for PyTorch for Medical Imaging are recommended in [Learning PyTorch for Medical Imaging](docs/pytorch.md).
+- For Python programming and numerical computing: 
+    - Basic Python programming is required in this module. Relevant tutorials are readily available, e.g. tutorial links in the [supported development environment for Python].
+    - Other tools may be useful but not supported: [Jupyter Notebook](https://jupyter.org/), [Anaconda](https://www.anaconda.com/products/individual) and any other IDEs or code editors.
 
-### General programming and software development
-This is outside of the module scope, but one might find useful materials and links in the [UCL Module MPHY0030 Programming Foundations for Medical Image Analysis](https://weisslab.cs.ucl.ac.uk/WEISSTeaching/mphy0030), including: 
-- [Supported development environment for Python](https://weisslab.cs.ucl.ac.uk/WEISSTeaching/mphy0030/-/blob/master/docs/dev_env_python.md)
-- [Work with Git](https://weisslab.cs.ucl.ac.uk/WEISSTeaching/mphy0030/-/blob/master/docs/dev_env_git.md)
-- [A Roadmap to Learning Python and Machine Learning by Yourself](https://weisslab.cs.ucl.ac.uk/WEISSTeaching/mphy0030/-/blob/master/docs/diy_python_ml.md)
+- For TensorFlow and PyTorch:
+    - TA-led tutorials will be provided as a refresher at the beginners level.
+    - Other tutorials are readily available, e.g. the respective official documentation [TensorFlow tutorials](https://www.tensorflow.org/tutorials) and [PyTorch tutorials](https://pytorch.org/tutorials/). 
+    - TA support are also available with the above-specified development environment.
+
+- For GPU acceleration:
+    - [Google Colab](https://colab.research.google.com/) provides freely available computing resource, though restrictions apply.
+    - UCL Department of Computer Science hosts a [high performance computing cluster](https://hpc.cs.ucl.ac.uk/), with independent technical support.
+    - Other GPU supply is to be confirmed.
+
+[supported development environment for Python]: https://weisslab.cs.ucl.ac.uk/YipengHu/mphy0030/-/blob/main/docs/dev_env_python.md
 
 
 ## 2. Tutorials
@@ -38,42 +46,35 @@ To run the tutorial examples, follow the instruction below.
 
 First, set up the environment:
 ``` bash
-conda create --name mphy0041 numpy matplotlib h5py tensorflow pytorch
+conda create --name comp0030 numpy matplotlib h5py tensorflow pytorch
 conda activate mphy0041
 ```
 >Additional libraries may be required for individual tutorials. Please see the _readme.md_ file in individual tutorial folders. 
 
-Then, go to each individual tutorial and run the `data.py` script to download tutorial data, after replacing `tutorial_subfolder_name`:
+Then, go to each individual tutorial directory and run individual script, e.g.
 ``` bash
-cd tutorial_subfolder_name  # e.g. `cd segmentation`
-python data.py
-```
-
-Run one of the training scripts:
-``` bash
-python train_pt.py  # train using PyTorch
+python train_pt.py   
 ```
 or 
 ``` bash
-python train_tf2.py  # train using TensorFlow2
+python train_tf2.py  
 ```
 
-Visualise example data and (predicted) labels:
-``` bash
-python visualise.py
-```
+>Scripts with "_tf2" and "_pt" postfix are using TensorFlow and PyTorch, respectively.
+
 
 ### Convolutional neural networks
-[Image classification](tutorials/cnn)
+[Image classification](tutorials/image_classification)
+[Image segmentation](tutorials/image_segmentation)
 
 ### Recurrent neural networks
-[](tutorials/rnn)
+[Text classification](tutorials/text_classification)
 
 ### Autoencoder
-[Unsupervised variational autoencoder](tutorials/vae)
+[Unsupervised variational autoencoder](tutorials/mnist_vae)
 
-### Deep generative adversarial networks
-[Ultrasound image simulation](tutorials/gan)
+### Generative adversarial networks
+[Image simulation](tutorials/image_gan)
 
 
 ## 3. Reading list
