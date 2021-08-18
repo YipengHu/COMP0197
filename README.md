@@ -1,5 +1,5 @@
-# Introduction to Deep Learning
-UCL Module [COMP0090 Introduction to Deep Learning](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-deep-learning/COMP0090)  
+# COMP0090: Introduction to Deep Learning
+UCL Module, Department of Computer Science 
 >Term 1 (Autumn), 2021-22 Academic Year
 
 
