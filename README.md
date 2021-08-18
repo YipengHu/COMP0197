@@ -1,5 +1,5 @@
 # COMP0090: Introduction to Deep Learning
-UCL Module | [link to Department of Computer Science](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page](https://moodle.ucl.ac.uk/course/view.php?id=1444)
+UCL Module | [Department of Computer Science](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page](https://moodle.ucl.ac.uk/course/view.php?id=1444)
 >Term 1 (Autumn), Academic Year 2021-22 
 
 
