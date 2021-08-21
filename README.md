@@ -50,7 +50,7 @@ First, set up the environment:
 conda create --name comp0090 numpy matplotlib h5py tensorflow pytorch torchvision
 conda activate comp0090
 ```
->Additional libraries may be required for individual tutorials. Please see the _readme.md_ file in individual tutorial folders. 
+>Additional libraries required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
 
 >Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.
 
@@ -77,7 +77,7 @@ python test_tf.py
 
 
 ### Convolutional neural networks
-[Image classification](tutorials/image_classification)
+[Image classification](tutorials/image_classification)  
 [Image segmentation](tutorials/image_segmentation)
 
 ### Recurrent neural networks
