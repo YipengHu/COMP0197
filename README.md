@@ -52,16 +52,28 @@ conda activate comp0090
 ```
 >Additional libraries may be required for individual tutorials. Please see the _readme.md_ file in individual tutorial folders. 
 
-Then, go to each individual tutorial directory and run individual script, e.g.
+>Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.
+
+>All visual examples will be saved in jpg files, without graphics.
+
+Then, go to each individual tutorial directory and run individual train script, e.g.
 ``` bash
-python script_pt.py   
+python train_pt.py   
 ```
 or 
 ``` bash
-python script_tf.py  
+python train_tf.py  
 ```
 
->Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.
+After training, run individual test script, e.g.
+``` bash
+python test_pt.py   
+```
+or 
+``` bash
+python test_tf.py  
+```
+
 
 
 ### Convolutional neural networks
