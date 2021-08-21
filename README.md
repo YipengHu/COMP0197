@@ -1,9 +1,10 @@
-# Introduction to Deep Learning
-UCL Module [COMP0090 Introduction to Deep Learning](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-deep-learning/COMP0090)  
->Term 1 (Autumn), 2021-22 Academic Year
+# COMP0090: Introduction to Deep Learning
+UCL Module | [Department of Computer Science](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page](https://moodle.ucl.ac.uk/course/view.php?id=1444)
+>Term 1 (Autumn), Academic Year 2021-22 
 
 
-**Module Lead** Yipeng Hu <yipeng.hu@ucl.ac.uk>
+**Module Lead**  
+Yipeng Hu <yipeng.hu@ucl.ac.uk>
 
 |**Other Contacts**   | Email                       | Role           |
 |---------------------|-----------------------------|----------------|
