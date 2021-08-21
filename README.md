@@ -46,21 +46,21 @@ To run the tutorial examples, follow the instruction below.
 
 First, set up the environment:
 ``` bash
-conda create --name comp0030 numpy matplotlib h5py tensorflow pytorch
-conda activate mphy0041
+conda create --name comp0090 numpy matplotlib h5py tensorflow pytorch torchvision
+conda activate comp0090
 ```
 >Additional libraries may be required for individual tutorials. Please see the _readme.md_ file in individual tutorial folders. 
 
 Then, go to each individual tutorial directory and run individual script, e.g.
 ``` bash
-python train_pt.py   
+python script_pt.py   
 ```
 or 
 ``` bash
-python train_tf2.py  
+python script_tf.py  
 ```
 
->Scripts with "_tf2" and "_pt" postfix are using TensorFlow and PyTorch, respectively.
+>Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.
 
 
 ### Convolutional neural networks
