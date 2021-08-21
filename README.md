@@ -16,7 +16,7 @@ Yipeng Hu <yipeng.hu@ucl.ac.uk>
 ## 1. Development environment
 
 ### Python
-The tutorials require a few dependencies, numpy, matplotlib, in addition to one of the two deep learning libraries. Individual tutorials may also require other libraries which will be specified in the readme.md in individual tutorial folders (see links below). 
+The tutorials require a few dependencies, e.g. NumPy, in addition to one of the two deep learning libraries. Individual tutorials may also require other libraries which will be specified in the readme.md in individual tutorial folders (see links below). 
 
 ### Deep learning libraries
 Module tutorials are implemented in Python with both [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/). 
@@ -47,7 +47,7 @@ To run the tutorial examples, follow the instruction below.
 
 First, set up the environment:
 ``` bash
-conda create --name comp0090 numpy matplotlib h5py tensorflow pytorch torchvision
+conda create --name comp0090 numpy tensorflow pytorch torchvision
 conda activate comp0090
 ```
 >Additional libraries required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
@@ -56,7 +56,7 @@ conda activate comp0090
 
 >All visual examples will be saved in jpg files, without graphics.
 
-Then, go to each individual tutorial directory and run individual train script, e.g.
+Then, change directory `cd` to each individual tutorial folder and run individual train script, e.g.
 ``` bash
 python train_pt.py   
 ```
