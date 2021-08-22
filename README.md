@@ -77,17 +77,17 @@ python test_tf.py
 
 
 ### Convolutional neural networks
-[Image classification](tutorials/image_classification)  
-[Image segmentation](tutorials/image_segmentation)
+[Image classification](tutorials/img_cls)  
+[Image segmentation](tutorials/img_sgm)
 
 ### Recurrent neural networks
-[Text classification](tutorials/text_classification)
+[Text classification](tutorials/txt_cls)
 
 ### Autoencoder
 [Unsupervised variational autoencoder](tutorials/mnist_vae)
 
 ### Generative adversarial networks
-[Image simulation](tutorials/image_gan)
+[Image simulation](tutorials/img_gan)
 
 
 ## 3. Reading list
