@@ -28,7 +28,7 @@ model.load_state_dict(torch.load('saved_model.pt'))
 
 ## inference
 images, labels = dataiter.next()
-print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
+print('Ground-truth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
 outputs = model(images)
 _, predicted = torch.max(outputs, 1)
@@ -36,5 +36,5 @@ print('Predicted: ', ' '.join('%5s' % classes[predicted[j]] for j in range(4)))
 
 # save to images
 im = Image.fromarray((torch.cat(images.split(1,0),3).squeeze()/2*255+.5*255).permute(1,2,0).numpy().astype('uint8'))
-im.save("test_images.jpg")
-print('test_images.jpg saved.')
+im.save("test_pt_images.jpg")
+print('test_pt_images.jpg saved.')

@@ -64,7 +64,7 @@ for epoch in range(2):  # loop over the dataset multiple times
                   (epoch + 1, i + 1, running_loss / 2000))
             running_loss = 0.0
 
-print('Finished Training')
+print('Training done.')
 
 # save trained model
 torch.save(net.state_dict(), 'saved_model.pt')
