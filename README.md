@@ -83,11 +83,11 @@ python test_tf.py
 ### Recurrent neural networks
 [Text classification](tutorials/txt_cls)
 
-### Autoencoder
-[Unsupervised variational autoencoder](tutorials/mnist_vae)
+### Unsupervised variational autoencoder
+[MNIST de-noising](tutorials/mnist_vae)
 
 ### Generative adversarial networks
-[Image simulation](tutorials/img_gan)
+[Face image simulation](tutorials/face_gan)
 
 
 ## 3. Reading list
