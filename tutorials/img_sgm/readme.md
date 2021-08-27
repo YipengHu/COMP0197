@@ -6,6 +6,6 @@ For both PyTorch and TensorFlow scripts, the [TensorFlow Datasets](https://www.t
 conda install -c anaconda tensorflow-datasets 
 ```
 or 
-``` bash
-pip install tensorflow-datasets  
+``` bash  
+pip install tfds-nightly  # pip install tensorflow-datasets
 ```
