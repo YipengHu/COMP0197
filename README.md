@@ -6,11 +6,16 @@ UCL Module | [Department of Computer Science](https://www.ucl.ac.uk/computer-sci
 **Module Lead**  
 Yipeng Hu <yipeng.hu@ucl.ac.uk>
 
-|**Other Contacts**   | Email                       | Role           |
-|---------------------|-----------------------------|----------------|
-|Dr Andre Altmann     | <a.altmann@ucl.ac.uk>       | Academic Staff |
-|Dr XX                | <axx.xxxxx@ucl.ac.uk>       | Teaching Assistant |
-|XXXX XXX             | <bxx.xxxxx@ucl.ac.uk>       | Teaching Assistant |
+  
+|Tutors & TAs     | Email                       |
+|-----------------|-----------------------------|  
+|Dr Andre Altmann | a.altmann@ucl.ac.uk         |  
+|Dr Ziyi Shen     | tbc                         |  
+|Shaheer Saeed    | shaheer.saeed.17@ucl.ac.uk  |  
+|Kate Li          | yiwen.li@st-annes.ox.ac.uk  |  
+|Sophie Martin    | s.martin.20@ucl.ac.uk       |  
+|Liam Chalcroft   | liam.chalcroft.20@ucl.ac.uk |  
+|Mark Pinnock     | mark.pinnock.18@ucl.ac.uk   |  
 
 
 ## 1. Development environment
