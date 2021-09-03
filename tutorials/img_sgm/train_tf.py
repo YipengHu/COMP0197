@@ -3,22 +3,18 @@
 
 
 import tensorflow as tf
-from tensorflow.keras.layers.experimental import preprocessing 
-
-import tensorflow_datasets as tfds
+import utils
 
 
-## cifar-10 dataset
-
-from tensorflow_examples.models.pix2pix import pix2pix
-
-from IPython.display import clear_output
-import matplotlib.pyplot as plt
-
-
-dataset, info = tfds.load('oxford_iiit_pet:3.*.*', with_info=True)
+DATA_PATH = './data'
 
 # example images
+loader_train = utils.H5ImageLoader(DATA_PATH+'/images_train.h5', 20, DATA_PATH+'/labels_train.h5')
+
+
+for idx, (images,labels) in enumerate(loader_train):
+  print(idx)
+
 
 def normalize(input_image, input_mask):
   input_image = tf.cast(input_image, tf.float32) / 255.0
