@@ -24,12 +24,12 @@ label_montage = Image.fromarray(tf.concat([labels[i] for i in range(len(labels))
 label_montage.save("train_labels.jpg")
 
 ## settings
-minibatch_size = 20
+minibatch_size = 32
 network_size = 16
 learning_rate = 1e-4
 num_epochs = 500
-freq_info = 1
-freq_save = 50
+freq_info = 10
+freq_save = 100
 save_path = "results_tf"
 
 if not os.path.exists(save_path):
@@ -70,6 +70,7 @@ def train_step(images, labels):  # train step
 
 @tf.function
 def val_step(images, labels):  # validation step
+    images, labels = pre_process(images, labels)
     predicts = seg_net(images, training=False)
     losses = utils.dice_loss(predicts, labels)
     dsc_scores = utils.dice_binary(predicts, labels)
