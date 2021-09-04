@@ -39,7 +39,7 @@ for temp_file in filenames:
 img_dir = 'images'
 seg_dir = 'annotations/trimaps'
 #----- options -----
-im_size = (128,128)
+im_size = (64,64)
 ratio_val = 0.1
 ratio_test = 0.2
 #-------------------
