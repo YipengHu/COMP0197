@@ -174,3 +174,52 @@ for epoch in range(1, epochs + 1):
   print('Epoch: {}, Test set ELBO: {}, time elapse for current epoch: {}'
         .format(epoch, elbo, end_time - start_time))
   generate_and_save_images(model, epoch, test_sample)
+
+
+def display_image(epoch_no):
+  return PIL.Image.open('image_at_epoch_{:04d}.png'.format(epoch_no))
+
+plt.imshow(display_image(epoch))
+plt.axis('off')  # Display images
+
+
+
+anim_file = 'cvae.gif'
+
+with imageio.get_writer(anim_file, mode='I') as writer:
+  filenames = glob.glob('image*.png')
+  filenames = sorted(filenames)
+  for filename in filenames:
+    image = imageio.imread(filename)
+    writer.append_data(image)
+  image = imageio.imread(filename)
+  writer.append_data(image)
+
+import tensorflow_docs.vis.embed as embed
+embed.embed_file(anim_file)
+
+
+def plot_latent_images(model, n, digit_size=28):
+  """Plots n x n digit images decoded from the latent space."""
+
+  norm = tfp.distributions.Normal(0, 1)
+  grid_x = norm.quantile(np.linspace(0.05, 0.95, n))
+  grid_y = norm.quantile(np.linspace(0.05, 0.95, n))
+  image_width = digit_size*n
+  image_height = image_width
+  image = np.zeros((image_height, image_width))
+
+  for i, yi in enumerate(grid_x):
+    for j, xi in enumerate(grid_y):
+      z = np.array([[xi, yi]])
+      x_decoded = model.sample(z)
+      digit = tf.reshape(x_decoded[0], (digit_size, digit_size))
+      image[i * digit_size: (i + 1) * digit_size,
+            j * digit_size: (j + 1) * digit_size] = digit.numpy()
+
+  plt.figure(figsize=(10, 10))
+  plt.imshow(image, cmap='Greys_r')
+  plt.axis('Off')
+  plt.show()
+
+plot_latent_images(model, 20)
