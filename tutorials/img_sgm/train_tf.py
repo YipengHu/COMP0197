@@ -12,6 +12,7 @@ from network_tf import ResUNet
 import utils_tf as utils
 
 
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 DATA_PATH = './data'
 
 
