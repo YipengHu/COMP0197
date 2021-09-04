@@ -136,17 +136,12 @@ manualSeed = 90
 random.seed(manualSeed)
 torch.manual_seed(manualSeed)
 
+
+print("Starting Training Loop...")
 fixed_noise = torch.randn(64, nz, 1, 1)
 if use_cuda:
     fixed_noise = fixed_noise.cuda()
-
-img_list = []
-G_losses = []
-D_losses = []
 iters = 0
-
-print("Starting Training Loop...")
-# For each epoch
 for epoch in range(num_epochs):
     # For each batch in the dataloader
     for i, data in enumerate(dataloader, 0):
@@ -182,16 +177,13 @@ for epoch in range(num_epochs):
                   % (epoch, num_epochs, i, len(dataloader),
                      errD.item(), errG.item()))
 
-        # Save Losses for plotting later
-        G_losses.append(errG.item())
-        D_losses.append(errD.item())
-
-        # Check how the generator is doing by saving G's output on fixed_noise
+        # save images
         if (iters%500==0) or ((epoch==num_epochs-1) and (i==len(dataloader)-1)):
             with torch.no_grad():
                 fake = netG(fixed_noise).detach().cpu()
-            img_list.append(vutils.make_grid(fake, padding=2, normalize=True))
-
+            im = np.transpose(vutils.make_grid(fake, padding=2, normalize=True),(1,2,0)).numpy()
+            Image.fromarray((im*255).astype(np.uint8)).save("gen_pt_images_e%04d_i%06d.jpg" % (epoch,i))
+        
         iters += 1
 
 print('Training done.')
