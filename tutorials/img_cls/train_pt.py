@@ -16,7 +16,7 @@ transform = transforms.Compose(
     [transforms.ToTensor(),
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
-batch_size = 4
+batch_size = 20
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
@@ -26,8 +26,8 @@ dataiter = iter(trainloader)
 images, labels = dataiter.next()
 
 im = Image.fromarray((torch.cat(images.split(1,0),3).squeeze()/2*255+.5*255).permute(1,2,0).numpy().astype('uint8'))
-im.save("train_images.jpg")
-print('train_images.jpg saved.')
+im.save("train_pt_images.jpg")
+print('train_pt_images.jpg saved.')
 print('Ground truth labels:' + ' '.join('%5s' % classes[labels[j]] for j in range(batch_size)))
 
 

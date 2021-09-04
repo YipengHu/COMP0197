@@ -12,7 +12,7 @@ from PIL import Image
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
 # example images
-num_images = 10
+num_images = 20
 im = Image.fromarray(tf.concat([train_images[i,...] for i in range(num_images)],1).numpy())
 im.save("train_tf_images.jpg")
 print('train_tf_images.jpg saved.')
