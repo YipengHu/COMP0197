@@ -5,7 +5,6 @@
 import os
 
 import tensorflow as tf
-from PIL import Image
 
 from loader import H5ImageLoader
 from network_tf import ResUNet
@@ -15,13 +14,6 @@ import utils_tf as utils
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
 DATA_PATH = './data'
 
-
-## example train images
-images,labels = next(iter(H5ImageLoader(DATA_PATH+'/images_train.h5', 10, DATA_PATH+'/labels_train.h5')))
-image_montage = Image.fromarray(tf.concat([images[i] for i in range(len(images))],axis=1).numpy())
-image_montage.save("train_images.jpg")
-label_montage = Image.fromarray(tf.concat([labels[i] for i in range(len(labels))],axis=1).numpy())
-label_montage.save("train_labels.jpg")
 
 ## settings
 minibatch_size = 32
