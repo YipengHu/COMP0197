@@ -45,13 +45,22 @@ seg_net = ResUNet(init_ch=network_size)
 seg_net = seg_net.build(input_shape=loader_train.image_size)
 # seg_net.summary()
 
+
+## pre-processing
+@tf.function
+def pre_process(images, labels):
+    images = tf.cast(tf.stack(images), dtype=tf.float32)
+    labels = tf.cast(tf.expand_dims(tf.stack(labels),axis=3), dtype=tf.float32)
+    return images, labels
+
 ## train
 optimizer = tf.optimizers.Adam(learning_rate)
 
 @tf.function
 def train_step(images, labels):  # train step
     with tf.GradientTape() as tape:
-        images, labels = utils.random_image_label_transform(images, labels)
+        images, labels = pre_process(images, labels)
+        # images, labels = utils.random_image_label_transform(images, labels)
         predicts = seg_net(images, training=True)
         loss = tf.reduce_mean(utils.dice_loss(predicts, labels))
     gradients = tape.gradient(loss, seg_net.trainable_variables)
@@ -62,8 +71,8 @@ def train_step(images, labels):  # train step
 def val_step(images, labels):  # validation step
     predicts = seg_net(images, training=False)
     losses = utils.dice_loss(predicts, labels)
-    dices, false_positives = utils.dice_metric_fg(predicts, labels)
-    return losses, dices, false_positives
+    dsc_scores = utils.dice_binary(predicts, labels)
+    return losses, dsc_scores
 
 for epoch in range(num_epochs):
 
@@ -74,17 +83,15 @@ for epoch in range(num_epochs):
         tf.print('Epoch {}: loss={:0.5f}'.format(epoch,loss_train))
 
     if (epoch+1) % freq_save == 0:
-        losses_all, dices_all, false_positives_all = [], [], []
+        losses_all, dsc_scores_all = [], []
         for frames_val, masks_val in loader_val:
-            losses, dices, false_positives = val_step(frames_val, masks_val)
+            losses, dsc_scores = val_step(frames_val, masks_val)
             losses_all += [losses]
-            dices_all += [dices]
-            false_positives_all += [false_positives]
+            dsc_scores_all += [dsc_scores]
         tf.print('Epoch {}: val-loss={:0.5f}, val-dice={:0.5f}, false_positives={:0.5f}'.format(
             epoch,
             tf.reduce_mean(tf.concat(losses_all,axis=0)),
-            tf.reduce_mean(tf.concat(dices_all,axis=0)),
-            tf.reduce_mean(tf.concat(false_positives_all,axis=0))
+            tf.reduce_mean(tf.concat(dsc_scores_all,axis=0))
             ))
         tf.saved_model.save(seg_net, os.path.join(save_path, 'epoch{:d}'.format(epoch)))
         tf.print('Model saved.')

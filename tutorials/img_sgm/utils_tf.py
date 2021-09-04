@@ -6,14 +6,6 @@ import tensorflow as tf
 def dice_loss(ps,ts):
     return - dice_score(ps,ts)
 
-def dice_metric_fg(ps,ts):
-    all_negatives = tf.reduce_all(ts==0,axis=[1,2,3])
-    any_positives = tf.math.logical_not(all_negatives)
-    false_postives = tf.reduce_sum(tf.cast(tf.boolean_mask(ps,all_negatives,axis=0)>=0.5,ps.dtype),axis=[1,2,3])
-    dice = dice_binary(tf.boolean_mask(ps,any_positives,axis=0),tf.boolean_mask(ts,any_positives,axis=0))
-    return dice, false_postives
-
-
 def dice_binary(ps,ts):
     ps = tf.cast(ps>=.5,dtype=ps.dtype)
     ts = tf.cast(ts>=.5,dtype=ts.dtype)
