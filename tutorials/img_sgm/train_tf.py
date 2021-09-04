@@ -12,7 +12,7 @@ from network_tf import ResUNet
 import utils_tf as utils
 
 
-os.environ["CUDA_VISIBLE_DEVICES"]="0"
+os.environ["CUDA_VISIBLE_DEVICES"]="2"
 DATA_PATH = './data'
 
 
@@ -90,7 +90,7 @@ for epoch in range(num_epochs):
             losses, dsc_scores = val_step(frames_val, masks_val)
             losses_all += [losses]
             dsc_scores_all += [dsc_scores]
-        tf.print('Epoch {}: val-loss={:0.5f}, val-dice={:0.5f}, false_positives={:0.5f}'.format(
+        tf.print('Epoch {}: val-loss={:0.5f}, val-DSC={:0.5f}'.format(
             epoch,
             tf.reduce_mean(tf.concat(losses_all,axis=0)),
             tf.reduce_mean(tf.concat(dsc_scores_all,axis=0))
