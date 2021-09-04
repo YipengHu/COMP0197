@@ -12,7 +12,7 @@ from network_tf import ResUNet
 import utils_tf as utils
 
 
-os.environ["CUDA_VISIBLE_DEVICES"]="2"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 DATA_PATH = './data'
 
 
@@ -28,7 +28,7 @@ minibatch_size = 32
 network_size = 16
 learning_rate = 1e-4
 num_epochs = 500
-freq_info = 10
+freq_info = 1
 freq_save = 100
 save_path = "results_tf"
 
@@ -47,21 +47,14 @@ seg_net = seg_net.build(input_shape=loader_train.image_size)
 # seg_net.summary()
 
 
-## pre-processing
-@tf.function
-def pre_process(images, labels):
-    images = tf.cast(tf.stack(images), dtype=tf.float32)
-    labels = tf.cast(tf.expand_dims(tf.stack(labels),axis=3), dtype=tf.float32)
-    return images, labels
-
 ## train
 optimizer = tf.optimizers.Adam(learning_rate)
 
 @tf.function
 def train_step(images, labels):  # train step
     with tf.GradientTape() as tape:
-        images, labels = pre_process(images, labels)
-        # images, labels = utils.random_image_label_transform(images, labels)
+        images, labels = utils.pre_process(images, labels)
+        # Q: add data augmentation
         predicts = seg_net(images, training=True)
         loss = tf.reduce_mean(utils.dice_loss(predicts, labels))
     gradients = tape.gradient(loss, seg_net.trainable_variables)
@@ -70,7 +63,7 @@ def train_step(images, labels):  # train step
 
 @tf.function
 def val_step(images, labels):  # validation step
-    images, labels = pre_process(images, labels)
+    images, labels = utils.pre_process(images, labels)
     predicts = seg_net(images, training=False)
     losses = utils.dice_loss(predicts, labels)
     dsc_scores = utils.dice_binary(predicts, labels)

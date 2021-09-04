@@ -17,6 +17,14 @@ def dice_score(ps,ts,eps=1e-7):
     return numerator/denominator
 
 
+@tf.function
+def pre_process(images, labels):
+    images = tf.cast(tf.stack(images), dtype=tf.float32)
+    labels = tf.cast(tf.expand_dims(tf.stack(labels),axis=3), dtype=tf.float32)
+    return images, labels
+
+
+## for data augmentation
 def get_reference_grid(grid_size):
     # grid_size: [batch, height, width]
     grid = tf.cast(tf.stack(tf.meshgrid(
