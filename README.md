@@ -61,7 +61,7 @@ conda activate comp0090
 
 >All visual examples will be saved in jpg files, without graphics.
 
-Then, change directory `cd` to each individual tutorial folder and run individual train script, e.g.
+Then, change directory `cd` to each individual tutorial folder and run individual training scripts, e.g.:
 ``` bash
 python train_pt.py   
 ```
@@ -70,7 +70,7 @@ or
 python train_tf.py  
 ```
 
-After training, run individual test script, e.g.
+After training, run individual test script if available, e.g.:
 ``` bash
 python test_pt.py   
 ```
