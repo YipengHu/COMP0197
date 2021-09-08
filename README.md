@@ -89,7 +89,7 @@ python test_tf.py
 [Text classification](tutorials/txt_cls)
 
 ### Variational autoencoder
-[MNIST denoising](tutorials/mnist_vae)
+[MNIST generation](tutorials/mnist_vae)
 
 ### Generative adversarial networks
 [Face image simulation](tutorials/face_gan)
