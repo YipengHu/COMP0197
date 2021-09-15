@@ -1,5 +1,6 @@
 # Text classification
 This text classification tutorial trains a [recurrent neural network](https://developers.google.com/machine-learning/glossary/#recurrent_neural_network) on the [IMDB large movie review dataset](http://ai.stanford.edu/~amaas/data/sentiment/) for sentiment analysis.
+Thi is adapted from https://www.tensorflow.org/text/tutorials/text_classification_rnn.
 
 This tutorial requires [Tensorflow Datasets](https://www.tensorflow.org/datasets), install in the `comp0090`:
 ```bash
@@ -8,7 +9,6 @@ conda install -c anaconda tensorflow-datasets -n comp0090
 ```
 
 <img src="https://www.tensorflow.org/text/tutorials/images/bidirectional.png" alt="alt text"/>
-
 
 
 >For further tutorials, see below.
