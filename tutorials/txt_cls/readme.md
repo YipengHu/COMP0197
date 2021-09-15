@@ -15,10 +15,12 @@ conda install -c anaconda tensorflow-datasets -n comp0090
 
 
 ## For TensorFlow:
-https://www.tensorflow.org/text/tutorials/text_classification_rnn
-https://www.tensorflow.org/text/tutorials/transformer
+https://www.tensorflow.org/text/tutorials/text_generation  
+https://www.tensorflow.org/text/tutorials/nmt_with_attention  
+https://www.tensorflow.org/text/tutorials/transformer  
 
 
 ## For PyTorch:
-https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html
-https://pytorch.org/tutorials/beginner/translation_transformer.html
+https://pytorch.org/tutorials/intermediate/char_rnn_classification_tutorial.html  
+https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html  
+https://pytorch.org/tutorials/beginner/translation_transformer.html  

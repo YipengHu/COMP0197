@@ -27,7 +27,7 @@ The tutorials require a few dependencies, e.g. NumPy, in addition to one of the 
 Module tutorials are implemented in Python with both [TensorFlow](https://www.tensorflow.org/) and [PyTorch](https://pytorch.org/). 
 
 ### Technical support
-Conda is recommended to manage the required dependencies and libraries. It is not mandatory, in tutorials or assessed coursework, to use any specific development, package or environment management tools. However, technical support will be available with the tested development environment - see the [supported development environment for Python].
+Conda is recommended to manage the required dependencies and libraries. It is not mandatory, in tutorials or assessed coursework, to use any specific development, package or environment management tools. However, technical support will be available with the tested development environment - see the [supported development environment for Python].  
 
 - For Python programming and numerical computing: 
     - Basic Python programming is required in this module. Relevant tutorials are readily available, e.g. tutorial links in the [supported development environment for Python].
