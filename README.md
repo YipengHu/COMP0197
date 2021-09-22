@@ -29,7 +29,7 @@ To run the tutorial examples, follow the instruction below.
 
 First, set up the environment:
 ``` bash
-conda create --name comp0090 numpy tensorflow pytorch torchvision
+conda create --name comp0090 tensorflow pytorch torchvision
 conda activate comp0090
 ```
 >Additional libraries required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
