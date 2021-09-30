@@ -11,12 +11,14 @@ Yipeng Hu <yipeng.hu@ucl.ac.uk>
 |-----------------|-----------------------------|  
 |Dr Andre Altmann | a.altmann@ucl.ac.uk         |  
 |Dr Ziyi Shen     | ---                         |  
+|Ahmed Shahin     | ahmed.shahin.19@ucl.ac.uk   |  
 |Shaheer Saeed    | shaheer.saeed.17@ucl.ac.uk  |  
 |Kate Yiwen Li    | yiwen.li@st-annes.ox.ac.uk  |  
 |Sophie Martin    | s.martin.20@ucl.ac.uk       |  
 |Liam Chalcroft   | liam.chalcroft.20@ucl.ac.uk |  
 |Mark Pinnock     | mark.pinnock.18@ucl.ac.uk   |  
 |Iani Gayo        | iani.gayo.20@ucl.ac.uk      |  
+|Qi Li            | qi.li.21@ucl.ac.uk          |  
 
 	
 ## 1. Development environment
