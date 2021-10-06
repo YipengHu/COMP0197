@@ -82,108 +82,109 @@ class Discriminator(nn.Module):
         return self.main(input)
 
 
-# --- create the two networks
-netG = Generator()
-if use_cuda:
-    netG.cuda()
-netG.apply(weights_init)
+if __name__ == '__main__':
+    # --- create the two networks
+    netG = Generator()
+    if use_cuda:
+        netG.cuda()
+    netG.apply(weights_init)
 
-netD = Discriminator()
-if use_cuda:
-    netD.cuda()
-netD.apply(weights_init)
-
-
-
-## Dataset =======================================================
-workers = 2
-batch_size = 128
-image_size = 64  #All images will be resized to this
-
-dataset = torchvision.datasets.ImageFolder(root=dataroot,
-                           transform=transforms.Compose([
-                               transforms.Resize(image_size),
-                               transforms.CenterCrop(image_size),
-                               transforms.ToTensor(),
-                               transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-                           ]))
-# Create the dataloader
-dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
-                                         shuffle=True, num_workers=workers)
-
-# Plot some training images
-real_batch = next(iter(dataloader))
-im = Image.fromarray((np.transpose(vutils.make_grid(real_batch[0][:64], padding=2, normalize=True).cpu(),(1,2,0)).numpy()*255).astype(np.uint8))
-im.save("train_pt_images.jpg")
-print('train_pt_images.jpg saved.')
+    netD = Discriminator()
+    if use_cuda:
+        netD.cuda()
+    netD.apply(weights_init)
 
 
 
-## Losses and optimisers =======================================
-lr = 0.0002  # Learning rate 
-beta1 = 0.5  # Beta1 hyperparam for Adam optimizers
+    ## Dataset =======================================================
+    workers = 2
+    batch_size = 128
+    image_size = 64  #All images will be resized to this
 
-criterion = nn.BCELoss()
-optimizerD =  torch.optim.Adam(netD.parameters(), lr=lr, betas=(beta1, 0.999))
-optimizerG =  torch.optim.Adam(netG.parameters(), lr=lr, betas=(beta1, 0.999))
+    dataset = torchvision.datasets.ImageFolder(root=dataroot,
+                               transform=transforms.Compose([
+                                   transforms.Resize(image_size),
+                                   transforms.CenterCrop(image_size),
+                                   transforms.ToTensor(),
+                                   transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+                               ]))
+    # Create the dataloader
+    dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size,
+                                             shuffle=True, num_workers=workers)
+
+    # Plot some training images
+    real_batch = next(iter(dataloader))
+    im = Image.fromarray((np.transpose(vutils.make_grid(real_batch[0][:64], padding=2, normalize=True).cpu(),(1,2,0)).numpy()*255).astype(np.uint8))
+    im.save("train_pt_images.jpg")
+    print('train_pt_images.jpg saved.')
 
 
 
-## Training =====================================================
-num_epochs = 5  # Number of training epochs
+    ## Losses and optimisers =======================================
+    lr = 0.0002  # Learning rate
+    beta1 = 0.5  # Beta1 hyperparam for Adam optimizers
 
-manualSeed = 90
-random.seed(manualSeed)
-torch.manual_seed(manualSeed)
+    criterion = nn.BCELoss()
+    optimizerD =  torch.optim.Adam(netD.parameters(), lr=lr, betas=(beta1, 0.999))
+    optimizerG =  torch.optim.Adam(netG.parameters(), lr=lr, betas=(beta1, 0.999))
 
 
-print("Starting Training Loop...")
-fixed_noise = torch.randn(64, nz, 1, 1)
-if use_cuda:
-    fixed_noise = fixed_noise.cuda()
-iters = 0
-for epoch in range(num_epochs):
-    # For each batch in the dataloader
-    for i, data in enumerate(dataloader, 0):
-        
-        real_images = data[0]
-        label = torch.full((real_images.size(0),), 1., dtype=torch.float) #real label
-        noise = torch.randn(real_images.size(0), nz, 1, 1)
-        if use_cuda:
-            real_images, noise, label = real_images.cuda(), noise.cuda(), label.cuda()
 
-        # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))        
-        netD.zero_grad()
-        output = netD(real_images).view(-1)
-        errD_real = criterion(output, label)
-        errD_real.backward()
-        fake = netG(noise)
-        output = netD(fake.detach()).view(-1)
-        errD_fake = criterion(output, label.fill_(0.)) #fake label
-        errD_fake.backward()
-        errD = errD_real + errD_fake
-        optimizerD.step()
+    ## Training =====================================================
+    num_epochs = 5  # Number of training epochs
 
-        # (2) Update G network: maximize log(D(G(z)))
-        netG.zero_grad()
-        output = netD(fake).view(-1)
-        errG = criterion(output, label.fill_(1.)) #real label
-        errG.backward()
-        optimizerG.step()
+    manualSeed = 90
+    random.seed(manualSeed)
+    torch.manual_seed(manualSeed)
 
-        # Output training stats
-        if i % 50 == 0:
-            print('[Epoch=%d/%d][%d/%d]\tD-Loss=%.4f\tG-Loss=%.4f\t'
-                  % (epoch, num_epochs, i, len(dataloader),
-                     errD.item(), errG.item()))
 
-        # save images
-        if (iters%500==0) or ((epoch==num_epochs-1) and (i==len(dataloader)-1)):
-            with torch.no_grad():
-                fake = netG(fixed_noise).detach().cpu()
-            im = np.transpose(vutils.make_grid(fake, padding=2, normalize=True),(1,2,0)).numpy()
-            Image.fromarray((im*255).astype(np.uint8)).save("gen_pt_images_e%04d_i%06d.jpg" % (epoch,i))
-        
-        iters += 1
+    print("Starting Training Loop...")
+    fixed_noise = torch.randn(64, nz, 1, 1)
+    if use_cuda:
+        fixed_noise = fixed_noise.cuda()
+    iters = 0
+    for epoch in range(num_epochs):
+        # For each batch in the dataloader
+        for i, data in enumerate(dataloader, 0):
 
-print('Training done.')
+            real_images = data[0]
+            label = torch.full((real_images.size(0),), 1., dtype=torch.float) #real label
+            noise = torch.randn(real_images.size(0), nz, 1, 1)
+            if use_cuda:
+                real_images, noise, label = real_images.cuda(), noise.cuda(), label.cuda()
+
+            # (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))
+            netD.zero_grad()
+            output = netD(real_images).view(-1)
+            errD_real = criterion(output, label)
+            errD_real.backward()
+            fake = netG(noise)
+            output = netD(fake.detach()).view(-1)
+            errD_fake = criterion(output, label.fill_(0.)) #fake label
+            errD_fake.backward()
+            errD = errD_real + errD_fake
+            optimizerD.step()
+
+            # (2) Update G network: maximize log(D(G(z)))
+            netG.zero_grad()
+            output = netD(fake).view(-1)
+            errG = criterion(output, label.fill_(1.)) #real label
+            errG.backward()
+            optimizerG.step()
+
+            # Output training stats
+            if i % 50 == 0:
+                print('[Epoch=%d/%d][%d/%d]\tD-Loss=%.4f\tG-Loss=%.4f\t'
+                      % (epoch, num_epochs, i, len(dataloader),
+                         errD.item(), errG.item()))
+
+            # save images
+            if (iters%500==0) or ((epoch==num_epochs-1) and (i==len(dataloader)-1)):
+                with torch.no_grad():
+                    fake = netG(fixed_noise).detach().cpu()
+                im = np.transpose(vutils.make_grid(fake, padding=2, normalize=True),(1,2,0)).numpy()
+                Image.fromarray((im*255).astype(np.uint8)).save("gen_pt_images_e%04d_i%06d.jpg" % (epoch,i))
+
+            iters += 1
+
+    print('Training done.')
