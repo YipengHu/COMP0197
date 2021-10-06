@@ -10,62 +10,62 @@ from PIL import Image
 
 from network_pt import Net
 
-if __name__ == '__main__':
-    ## cifar-10 dataset
-    transform = transforms.Compose(
-        [transforms.ToTensor(),
-        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
-    batch_size = 20
-    trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
-    classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+## cifar-10 dataset
+transform = transforms.Compose(
+    [transforms.ToTensor(),
+     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
-    # example images
-    dataiter = iter(trainloader)
-    images, labels = dataiter.next()
+batch_size = 20
+trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
+classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-    im = Image.fromarray((torch.cat(images.split(1,0),3).squeeze()/2*255+.5*255).permute(1,2,0).numpy().astype('uint8'))
-    im.save("train_pt_images.jpg")
-    print('train_pt_images.jpg saved.')
-    print('Ground truth labels:' + ' '.join('%5s' % classes[labels[j]] for j in range(batch_size)))
+# example images
+dataiter = iter(trainloader)
+images, labels = dataiter.next()
 
-
-    ## cnn
-    net = Net()
+im = Image.fromarray((torch.cat(images.split(1,0),3).squeeze()/2*255+.5*255).permute(1,2,0).numpy().astype('uint8'))
+im.save("train_pt_images.jpg")
+print('train_pt_images.jpg saved.')
+print('Ground truth labels:' + ' '.join('%5s' % classes[labels[j]] for j in range(batch_size)))
 
 
-    ## loss and optimiser
-    criterion = torch.nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+## cnn
+net = Net()
 
 
-    ## train
-    for epoch in range(2):  # loop over the dataset multiple times
+## loss and optimiser
+criterion = torch.nn.CrossEntropyLoss()
+optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
-        running_loss = 0.0
-        for i, data in enumerate(trainloader, 0):
-            # get the inputs; data is a list of [inputs, labels]
-            inputs, labels = data
 
-            # zero the parameter gradients
-            optimizer.zero_grad()
+## train
+for epoch in range(2):  # loop over the dataset multiple times
 
-            # forward + backward + optimize
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
+    running_loss = 0.0
+    for i, data in enumerate(trainloader, 0):
+        # get the inputs; data is a list of [inputs, labels]
+        inputs, labels = data
 
-            # print statistics
-            running_loss += loss.item()
-            if i % 2000 == 1999:    # print every 2000 mini-batches
-                print('[%d, %5d] loss: %.3f' %
-                    (epoch + 1, i + 1, running_loss / 2000))
-                running_loss = 0.0
+        # zero the parameter gradients
+        optimizer.zero_grad()
 
-    print('Training done.')
+        # forward + backward + optimize
+        outputs = net(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
 
-    # save trained model
-    torch.save(net.state_dict(), 'saved_model.pt')
-    print('Model saved.')
+        # print statistics
+        running_loss += loss.item()
+        if i % 2000 == 1999:    # print every 2000 mini-batches
+            print('[%d, %5d] loss: %.3f' %
+                  (epoch + 1, i + 1, running_loss / 2000))
+            running_loss = 0.0
+
+print('Training done.')
+
+# save trained model
+torch.save(net.state_dict(), 'saved_model.pt')
+print('Model saved.')
