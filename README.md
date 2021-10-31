@@ -54,7 +54,7 @@ python train_tf.py
 [Image segmentation](tutorials/img_sgm)
 
 ### Recurrent neural networks
-[Text classification](tutorials/txt_cls)
+[Text classification](tutorials/txt_cls)  
 [Character generation](tutorials/char_gen)
 
 ### Variational autoencoder
