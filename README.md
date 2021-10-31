@@ -55,6 +55,7 @@ python train_tf.py
 
 ### Recurrent neural networks
 [Text classification](tutorials/txt_cls)
+[Character generation](tutorials/char_gen)
 
 ### Variational autoencoder
 [MNIST generation](tutorials/mnist_vae)
