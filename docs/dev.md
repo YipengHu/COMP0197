@@ -14,7 +14,7 @@ Conda is recommended to manage the required dependencies and libraries. It is no
     - Other tools may be useful but not supported: [Jupyter Notebook](https://jupyter.org/), [Anaconda](https://www.anaconda.com/products/individual) and any other IDEs or code editors.
 
 - For TensorFlow and PyTorch:
-    - Optional TA-led tutorials will be available as a refresher at the beginners level.
+    - Optional TA-led tutorials may be available as a refresher at the beginners level.
     - Other tutorials are readily available, e.g. the respective official documentation [TensorFlow tutorials](https://www.tensorflow.org/tutorials) and [PyTorch tutorials](https://pytorch.org/tutorials/). 
     - TA support are also available with the above-specified development environment.
 
