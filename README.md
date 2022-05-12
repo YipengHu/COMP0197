@@ -10,7 +10,7 @@ Yipeng Hu <yipeng.hu@ucl.ac.uk>
 |Tutors & TAs     | Email                       |
 |-----------------|-----------------------------|  
 |Dr Andre Altmann | a.altmann@ucl.ac.uk         |  
-|Dr Ziyi Shen     | ---                         |  
+|Dr Ziyi Shen     | ziyi-shen@ucl.ac.uk         |  
 |Ahmed Shahin     | ahmed.shahin.19@ucl.ac.uk   |  
 |Shaheer Saeed    | shaheer.saeed.17@ucl.ac.uk  |  
 |Kate Yiwen Li    | yiwen.li@st-annes.ox.ac.uk  |  
