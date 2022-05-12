@@ -1,6 +1,6 @@
 # COMP0197: Applied Deep Learning
 [UCL Module](https://www.ucl.ac.uk/module-catalogue/modules/applied-deep-learning-COMP0197) | [CS](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page]()
->Term 1 (Autumn), Academic Year 2021-22 
+>Term 2, Academic Year 2022-23 
 
 
 **Module Lead**  
