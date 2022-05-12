@@ -1,24 +1,11 @@
-# COMP0090: Introduction to Deep Learning
-[UCL Module](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-deep-learning/COMP0090) | [CS](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page](https://moodle.ucl.ac.uk/course/view.php?id=1444)
+# COMP0197: Applied Deep Learning
+[UCL Module](https://www.ucl.ac.uk/module-catalogue/modules/applied-deep-learning-COMP0197) | [CS](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page]()
 >Term 1 (Autumn), Academic Year 2021-22 
 
 
 **Module Lead**  
 Yipeng Hu <yipeng.hu@ucl.ac.uk>
 
-  
-|Tutors & TAs     | Email                       |
-|-----------------|-----------------------------|  
-|Dr Andre Altmann | a.altmann@ucl.ac.uk         |  
-|Dr Ziyi Shen     | ziyi-shen@ucl.ac.uk         |  
-|Ahmed Shahin     | ahmed.shahin.19@ucl.ac.uk   |  
-|Shaheer Saeed    | shaheer.saeed.17@ucl.ac.uk  |  
-|Kate Yiwen Li    | yiwen.li@st-annes.ox.ac.uk  |  
-|Sophie Martin    | s.martin.20@ucl.ac.uk       |  
-|Liam Chalcroft   | liam.chalcroft.20@ucl.ac.uk |  
-|Mark Pinnock     | mark.pinnock.18@ucl.ac.uk   |  
-|Iani Gayo        | iani.gayo.20@ucl.ac.uk      |  
-|Qi Li            | qi.li.21@ucl.ac.uk          |  
 
 	
 ## 1. Development environment
@@ -31,9 +18,15 @@ To run the tutorial examples, follow the instruction below.
 
 First, set up the environment:
 ``` bash
-conda create --name comp0090 tensorflow pytorch torchvision
-conda activate comp0090
+conda create --name comp0197-tf tensorflow PIL
+conda activate comp0197-tf
 ```
+
+``` bash
+conda create --name comp0197-pt pytorch torchvision
+conda activate comp0197-pt
+```
+
 >Additional libraries required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
 
 >Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.
