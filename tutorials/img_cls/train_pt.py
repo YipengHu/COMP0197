@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     # example images
     dataiter = iter(trainloader)
-    images, labels = dataiter.next()
+    images, labels = next(dataiter) # note: for pytorch versions (<1.14) use dataiter.next()
 
     im = Image.fromarray((torch.cat(images.split(1,0),3).squeeze()/2*255+.5*255).permute(1,2,0).numpy().astype('uint8'))
     im.save("train_pt_images.jpg")
