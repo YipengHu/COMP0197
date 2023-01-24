@@ -18,7 +18,7 @@ To run the tutorial examples, follow the instruction below.
 
 First, set up the environment:
 ``` bash
-conda create --name comp0197-tf tensorflow PIL
+conda create --name comp0197-tf tensorflow pillow
 conda activate comp0197-tf
 ```
 
