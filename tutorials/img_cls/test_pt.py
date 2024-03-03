@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
 
     ## inference
-    images, labels = dataiter.next()
+    images, labels = next(dataiter)
     print('Ground-truth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
 
     outputs = model(images)
