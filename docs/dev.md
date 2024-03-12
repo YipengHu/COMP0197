@@ -23,4 +23,4 @@ Conda is recommended to manage the required dependencies and libraries. It is no
     - UCL Department of Computer Science hosts a [high performance computing cluster](https://hpc.cs.ucl.ac.uk/), with independent technical support.
     - Other GPU supply is to be confirmed.
 
-[supported development environment for Python]: https://weisslab.cs.ucl.ac.uk/YipengHu/mphy0030/-/blob/main/docs/dev_env_python.md
+[supported development environment for Python]: https://github.com/YipengHu/MPHY0030/blob/main/docs/dev_env_python.md
