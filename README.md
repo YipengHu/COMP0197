@@ -1,13 +1,12 @@
 # COMP0197: Applied Deep Learning
 [UCL Module](https://www.ucl.ac.uk/module-catalogue/modules/applied-deep-learning-COMP0197) | [CS](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page]()
->Term 2, Academic Year 2022-23 
+>Term 2, Academic Year 2024-25 
 
 
 **Module Lead**  
 Yipeng Hu <yipeng.hu@ucl.ac.uk>
 
 
-	
 ## 1. Development environment
 The module tutorials (see bellow) and coursework use Python, NumPy and an option between TensorFlow and PyTorch. The [Development environment](docs/dev.md) document contains details of the supported development environment, though it is not mandatory.  
 
@@ -18,14 +17,15 @@ To run the tutorial examples, follow the instruction below.
 
 First, set up the environment:
 ``` bash
-conda create --name comp0197-tf tensorflow pillow
-conda activate comp0197-tf
-```
-
-``` bash
 conda create --name comp0197-pt pytorch torchvision
 conda activate comp0197-pt
 ```
+
+``` bash
+conda create --name comp0197-tf -c conda-forge tensorflow pillow
+conda activate comp0197-tf
+```
+
 
 >Additional libraries required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
 
