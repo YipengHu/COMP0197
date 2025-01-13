@@ -35,14 +35,13 @@ loader_val = H5ImageLoader(DATA_PATH+'/images_val.h5', 20, DATA_PATH+'/labels_va
 
 ## network
 seg_net = ResUNet(init_ch=network_size)
-seg_net = seg_net.build(input_shape=loader_train.image_size)
 # seg_net.summary()
 
 
 ## train
 optimizer = tf.optimizers.Adam(learning_rate)
 
-@tf.function
+#@tf.function
 def train_step(images, labels):  # train step
     with tf.GradientTape() as tape:
         images, labels = utils.pre_process(images, labels)
