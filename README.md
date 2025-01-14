@@ -14,7 +14,7 @@ First, set up the conda environments:
 ``` bash
 conda create --name comp0197_pt python=3.11 -y
 conda activate comp0197_pt
-conda install pytorch torchvision cpuonly -c pytorch
+conda install pytorch torchvision cpuonly -c pytorch -y
 ```
 
 ``` bash
@@ -24,13 +24,13 @@ pip install tensorflow-cpu pillow
 ```
 
 
->Additional libraries required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
+>Additional libraries and/or data required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
 
 >Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.
 
 >All visual examples will be saved in files, without requiring graphics.
 
-Then, change directory `cd` to each individual tutorial folders. Download necessary data as specified in the readme files, if provided. Run individual training scripts, e.g.:
+Then, change directory `cd` to each individual tutorial folders and run individual training scripts, e.g.:
 ``` bash
 conda activate comp0197_pt
 python train_pt.py   
