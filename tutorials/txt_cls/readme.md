@@ -4,7 +4,8 @@ This is adapted from https://www.tensorflow.org/text/tutorials/text_classificati
 
 This tutorial requires [Tensorflow Datasets](https://www.tensorflow.org/datasets) installed in the `comp0197_tf`:
 ```bash
-conda install -c anaconda tensorflow-datasets -n comp0197_tf
+conda activate comp0197_tf
+pip install tensorflow-datasets
 
 ```
 
