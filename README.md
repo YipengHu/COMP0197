@@ -10,15 +10,17 @@ The module tutorials (see bellow) and coursework use Python, NumPy and an option
 ### Quick start
 To run the tutorial examples, follow the instruction below.
 
-First, set up the environment:
+First, set up the conda environments:
 ``` bash
-conda create --name comp0197-pt pytorch torchvision
-conda activate comp0197-pt
+conda create --name comp0197_pt python=3.11 -y
+conda activate comp0197_pt
+conda install pytorch torchvision cpuonly -c pytorch
 ```
 
 ``` bash
-conda create --name comp0197-tf -c conda-forge tensorflow pillow
-conda activate comp0197-tf
+conda create --name comp0197_tf python=3.11 -y
+conda activate comp0197_tf
+pip install tensorflow-cpu pillow
 ```
 
 
@@ -28,12 +30,14 @@ conda activate comp0197-tf
 
 >All visual examples will be saved in files, without requiring graphics.
 
-Then, change directory `cd` to each individual tutorial folder and run individual training scripts, e.g.:
+Then, change directory `cd` to each individual tutorial folders. Download necessary data as specified in the readme files, if provided. Run individual training scripts, e.g.:
 ``` bash
+conda activate comp0197_pt
 python train_pt.py   
 ```
 or 
 ``` bash
+conda activate comp0197_tf
 python train_tf.py  
 ```
 

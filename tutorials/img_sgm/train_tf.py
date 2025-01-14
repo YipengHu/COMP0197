@@ -41,7 +41,7 @@ seg_net = ResUNet(init_ch=network_size)
 ## train
 optimizer = tf.optimizers.Adam(learning_rate)
 
-#@tf.function
+@tf.function
 def train_step(images, labels):  # train step
     with tf.GradientTape() as tape:
         images, labels = utils.pre_process(images, labels)

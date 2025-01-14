@@ -84,7 +84,7 @@ class ResnetBlock(layers.Layer):
                 output_padding=1,
                 use_bias=False, 
                 activation='relu')
-        self.batch_norm =  layers.BatchNormalization()
+        self.batch_norm = layers.BatchNormalization()
 
     def call(self, input):
         x = self.conv2d(input)
