@@ -49,6 +49,9 @@ python train_tf.py
 [Text classification](tutorials/txt_cls)  
 [Character generation](tutorials/char_gen)
 
+### Transformers
+[Language modelling](tutorial/gen_tform)
+
 ### Variational autoencoder
 [MNIST generation](tutorials/mnist_vae)
 
