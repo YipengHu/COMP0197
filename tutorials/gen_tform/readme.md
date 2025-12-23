@@ -1,6 +1,6 @@
-# Minimal Transformer + Attention Tutorials (PyTorch + TensorFlow)
+# Minimal Transformer Tutorials 
 
-This folder contains two **self-contained**, **minimal** implementations of a **decoder-only Transformer** (GPT-style) with **causal self-attention** for **character-level language modelling**.
+This folder contains two self-contained, minimal implementations of a decoder-only Transformer (GPT-style) with causal self-attention for character-level language modelling.
 
 Both versions:
 - download a tiny text dataset automatically (**Tiny Shakespeare**),
@@ -9,14 +9,19 @@ Both versions:
 - save a checkpoint,
 - load the trained model and generate text.
 
-No extra libraries beyond **PyTorch** or **TensorFlow** (plus Python standard library).
+## Requirements
 
----
+- Python 3.9+ recommended
+- Install frameworks (CPU is fine):
+
+```bash
+micromamba activate comp0197 
+```
 
 ## Files
 
 ### Shared (used by both)
-- `dataset.py`  
+- `data.py`  
   Downloads and loads Tiny Shakespeare into a local `data/` folder.
 - `tokeniser.py`  
   Minimal character vocabulary, `encode`, `decode`.
@@ -36,13 +41,3 @@ No extra libraries beyond **PyTorch** or **TensorFlow** (plus Python standard li
   Trains the model and saves TensorFlow weights + `ckpt_tf_meta.json`.
 - `test_tf.py`  
   Loads weights + meta and generates text from a prompt.
-
----
-
-## Requirements
-
-- Python 3.9+ recommended
-- Install frameworks (CPU is fine):
-
-```bash
-pip install torch tensorflow

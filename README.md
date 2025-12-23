@@ -10,19 +10,13 @@ The module tutorials (see bellow) and coursework use Python, NumPy and an option
 ### Quick start
 To run the tutorial examples, follow the instruction below.
 
-First, set up the micromamba environments:
+First, set up the micromamba environment:
 ``` bash
-micromamba create --name comp0197_pt python=3.12 -y
+micromamba create --name comp0197 python=3.12 -y
 micromamba activate comp0197_pt
-pip install pytorch torchvision
+install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+pip install tensorflow-cpu 
 ```
-
-``` bash
-micromamba create --name comp0197_tf python=3.12 -y
-micromamba activate comp0197_tf
-pip install tensorflow pillow
-```
-
 
 >Additional libraries and/or data required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
 
@@ -32,12 +26,14 @@ pip install tensorflow pillow
 
 Then, change directory `cd` to each individual tutorial folders and run individual training scripts, e.g.:
 ``` bash
-micromamba activate comp0197_pt
+micromamba activate comp0197
+```
+
+``` bash
 python train_pt.py   
 ```
 or 
 ``` bash
-micromamba activate comp0197_tf
 python train_tf.py  
 ```
 
@@ -50,7 +46,7 @@ python train_tf.py
 [Character generation](tutorials/char_gen)
 
 ### Transformers
-[Language modelling](tutorial/gen_tform)
+[Language modelling](tutorials/gen_tform)
 
 ### Variational autoencoder
 [MNIST generation](tutorials/mnist_vae)

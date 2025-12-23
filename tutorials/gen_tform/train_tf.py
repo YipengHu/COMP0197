@@ -3,7 +3,7 @@ import json
 import time
 import tensorflow as tf
 
-from dataset import load_text
+from data import load_text
 from tokeniser import build_char_vocab, encode
 from utils_tf import get_batch, CharTransformer
 
