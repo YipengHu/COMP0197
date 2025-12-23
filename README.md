@@ -13,22 +13,21 @@ To run the tutorial examples, follow the instruction below.
 First, set up the micromamba environment:
 ``` bash
 micromamba create --name comp0197 python=3.12 -y
-micromamba activate comp0197_pt
-install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+micromamba activate comp0197
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 pip install tensorflow-cpu 
 ```
 
->Additional libraries and/or data required for individual tutorials are specified in the _readme_ file in each tutorial directory. 
+>Additional libraries and/or data required for individual tutorials are specified in the _readme_ file in each tutorial directory.  
+>Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.  
+>All visual examples will be saved in files, without requiring graphics.  
 
->Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.
-
->All visual examples will be saved in files, without requiring graphics.
-
-Then, change directory `cd` to each individual tutorial folders and run individual training scripts, e.g.:
+First, change directory `cd` to each individual tutorial folders and run individual training scripts, e.g.:
 ``` bash
 micromamba activate comp0197
 ```
 
+Then: 
 ``` bash
 python train_pt.py   
 ```

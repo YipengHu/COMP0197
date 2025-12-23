@@ -3,7 +3,7 @@
 A common data source and loader will be used in this tutorial between PyTorch and TensorFlow. Run the `data.py` first to download the data from the Oxford-IIIT Pet Dataset.
 
 ```bash
-micromamba activate comp0197_tf  
+micromamba activate comp0197  
 python data.py
 ```
 

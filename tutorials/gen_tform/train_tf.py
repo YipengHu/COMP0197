@@ -1,3 +1,4 @@
+# train_tf.py
 import os
 import json
 import time
@@ -7,13 +8,15 @@ from data import load_text
 from tokeniser import build_char_vocab, encode
 from utils_tf import get_batch, CharTransformer
 
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", "-1") # CPU-only by default
+
 def main():
     # Files
     data_path = os.path.join("data", "tinyshakespeare.txt")
-    weights_path = os.path.join("ckpt_tf_weights")   # TensorFlow will create multiple files with this prefix
-    meta_path = os.path.join("ckpt_tf_meta.json")
+    weights_path = "ckpt_tf.weights.h5"      # Keras v3 expects .weights.h5
+    meta_path = "ckpt_tf_meta.json"
 
-    # Hyperparameters
+    # Hyperparameters (small demo)
     block_size = 128
     batch_size = 64
     n_layer = 4
@@ -28,10 +31,12 @@ def main():
 
     tf.random.set_seed(seed)
 
+    # Load data + vocab
     text = load_text(data_path)
     vocab = build_char_vocab(text)
     ids = tf.constant(encode(text, vocab.stoi), dtype=tf.int32)
 
+    # Train/val split
     n = int(0.9 * int(ids.shape[0]))
     train_data = ids[:n]
     val_data = ids[n:]
@@ -48,12 +53,12 @@ def main():
     model = CharTransformer(**config)
     opt = tf.keras.optimizers.AdamW(learning_rate=lr)
 
-    # Build variables
+    # Build variables once (so save/load works cleanly)
     _ = model(tf.zeros([1, 1], dtype=tf.int32), training=False)
 
     @tf.function
-    def loss_fn(x, y, training=True):
-        logits = model(x, training=training)
+    def loss_fn(x, y, training: bool = True):
+        logits = model(x, training=training)  # (B,T,V)
         loss = tf.nn.sparse_softmax_cross_entropy_with_logits(
             labels=tf.reshape(y, [-1]),
             logits=tf.reshape(logits, [-1, config["vocab_size"]]),
@@ -76,8 +81,10 @@ def main():
                 xb, yb = get_batch(d, block_size, batch_size)
                 losses.append(float(loss_fn(xb, yb, training=False).numpy()))
             return sum(losses) / len(losses)
+
         return mean_loss(train_data), mean_loss(val_data)
 
+    # Train loop
     t0 = time.time()
     for step in range(1, max_steps + 1):
         xb, yb = get_batch(train_data, block_size, batch_size)
@@ -85,14 +92,16 @@ def main():
 
         if step == 1 or step % eval_every == 0:
             tr, va = estimate_loss()
-            print(f"step {step:4d}, train {tr:.4f}, val {va:.4f}, elapsed {time.time()-t0:.1f}s")
+            print(f"step {step:4d}, train {tr:.4f}, val {va:.4f}, elapsed {time.time() - t0:.1f}s")
 
+    # Save checkpoint (weights + meta)
     model.save_weights(weights_path)
     with open(meta_path, "w", encoding="utf-8") as f:
-        json.dump({"chars": vocab.chars, "config": config}, f)
+        json.dump({"chars": vocab.chars, "config": config}, f, ensure_ascii=False, indent=2)
 
-    print(f"Saved weights prefix: {weights_path}")
-    print(f"Saved meta:           {meta_path}")
+    print(f"Saved weights: {weights_path}")
+    print(f"Saved meta:    {meta_path}")
+
 
 if __name__ == "__main__":
     main()
