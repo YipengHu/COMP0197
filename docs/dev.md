@@ -1,10 +1,7 @@
 # Development environment
 
-## Python
-The tutorials require a few dependencies, e.g. NumPy, in addition to one of the two deep learning libraries. Individual tutorials may also require other libraries which will be specified in the readme.md in individual tutorial folders. 
-
-## Deep learning libraries
-Module tutorials are implemented in Python with [TensorFlow](https://www.tensorflow.org/) and/or [PyTorch](https://pytorch.org/). 
+## Python and Deep learning libraries
+The tutorials require a few dependencies, e.g. NumPy, in addition to one of the two deep learning libraries, [TensorFlow](https://www.tensorflow.org/) or [PyTorch](https://pytorch.org/). Individual tutorials may also require other libraries which will be specified in the readme.md in individual tutorial folders. 
 
 ## Technical support
 Micromamba is recommended to manage the required dependencies and libraries. It is not mandatory, in tutorials or assessed coursework, to use any specific development, package or environment management tools. However, technical support will be available with the tested development environment.  

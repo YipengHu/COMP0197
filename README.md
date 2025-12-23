@@ -8,9 +8,7 @@ The module tutorials (see bellow) and coursework use Python, NumPy and an option
 
 ## 2. Tutorials
 ### Quick start
-To run the tutorial examples, follow the instruction below.
-
-First, set up the micromamba environment:
+Create a micromamba environment `comp0197` and install PyTorch and/or TensorFlow:
 ``` bash
 micromamba create --name comp0197 python=3.12 -y
 micromamba activate comp0197
@@ -18,23 +16,19 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 pip install tensorflow-cpu 
 ```
 
->Additional libraries and/or data required for individual tutorials are specified in the _readme_ file in each tutorial directory.  
->Scripts with "_tf" and "_pt" postfix are using TensorFlow 2 and PyTorch, respectively.  
->All visual examples will be saved in files, without requiring graphics.  
-
-First, change directory `cd` to each individual tutorial folders and run individual training scripts, e.g.:
+Go to a tutorial folder and run the training script:
 ``` bash
-micromamba activate comp0197
+cd path/to/tutorial
+python train_pt.py
+# or
+python train_tf.py
 ```
 
-Then: 
-``` bash
-python train_pt.py   
-```
-or 
-``` bash
-python train_tf.py  
-```
+Notes:
+- Each tutorial folder has its own `readme` with any extra dependencies or data.
+- `*_pt` scripts use PyTorch, `*_tf` scripts use TensorFlow 2.
+- Visual outputs are saved to files, no GUI required.
+
 
 ### Convolutional neural networks
 [Image classification](tutorials/img_cls)  
