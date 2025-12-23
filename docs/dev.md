@@ -7,11 +7,11 @@ The tutorials require a few dependencies, e.g. NumPy, in addition to one of the 
 Module tutorials are implemented in Python with [TensorFlow](https://www.tensorflow.org/) and/or [PyTorch](https://pytorch.org/). 
 
 ## Technical support
-Conda is recommended to manage the required dependencies and libraries. It is not mandatory, in tutorials or assessed coursework, to use any specific development, package or environment management tools. However, technical support will be available with the tested development environment - see the [supported development environment for Python].  
+Micromamba is recommended to manage the required dependencies and libraries. It is not mandatory, in tutorials or assessed coursework, to use any specific development, package or environment management tools. However, technical support will be available with the tested development environment - see the [supported development environment for Python].  
 
 - For Python programming and numerical computing: 
     - Basic Python programming is required in this module. Relevant tutorials are readily available, e.g. tutorial links in the [supported development environment for Python].
-    - Other tools may be useful but not supported: [Jupyter Notebook](https://jupyter.org/), [Anaconda](https://www.anaconda.com/products/individual) and any other IDEs or code editors.
+    - Other tools may be useful but not supported: [Jupyter Notebook](https://jupyter.org/), [Anamicromamba](https://www.anamicromamba.com/products/individual) and any other IDEs or code editors.
 
 - For TensorFlow and PyTorch:
     - Optional TA-led tutorials may be available as a refresher at the beginners level.

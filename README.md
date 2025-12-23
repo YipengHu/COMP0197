@@ -1,6 +1,6 @@
 # COMP0197: Applied Deep Learning
 [UCL Module](https://www.ucl.ac.uk/module-catalogue/modules/applied-deep-learning-COMP0197) | [CS](https://www.ucl.ac.uk/computer-science/) | [UCL Moodle Page]()
->Term 2, Academic Year 2024-25 
+>Term 2, Academic Year 2025-26 
 
 ## 1. Development environment
 The module tutorials (see bellow) and coursework use Python, NumPy and an option between TensorFlow and PyTorch. The [Development environment](docs/dev.md) document contains details of the supported development environment, though it is not mandatory.  
@@ -10,17 +10,17 @@ The module tutorials (see bellow) and coursework use Python, NumPy and an option
 ### Quick start
 To run the tutorial examples, follow the instruction below.
 
-First, set up the conda environments:
+First, set up the micromamba environments:
 ``` bash
-conda create --name comp0197_pt python=3.11 -y
-conda activate comp0197_pt
-conda install pytorch torchvision cpuonly -c pytorch -y
+micromamba create --name comp0197_pt python=3.12 -y
+micromamba activate comp0197_pt
+pip install pytorch torchvision
 ```
 
 ``` bash
-conda create --name comp0197_tf python=3.11 -y
-conda activate comp0197_tf
-pip install tensorflow-cpu pillow
+micromamba create --name comp0197_tf python=3.12 -y
+micromamba activate comp0197_tf
+pip install tensorflow pillow
 ```
 
 
@@ -32,12 +32,12 @@ pip install tensorflow-cpu pillow
 
 Then, change directory `cd` to each individual tutorial folders and run individual training scripts, e.g.:
 ``` bash
-conda activate comp0197_pt
+micromamba activate comp0197_pt
 python train_pt.py   
 ```
 or 
 ``` bash
-conda activate comp0197_tf
+micromamba activate comp0197_tf
 python train_tf.py  
 ```
 
