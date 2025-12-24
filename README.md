@@ -3,7 +3,7 @@
 >Term 2, Academic Year 2025-26 
 
 ## 1. Development environment
-The module tutorials (see bellow) and coursework use Python, NumPy and an option between TensorFlow and PyTorch. The [Development environment](docs/dev.md) document contains details of the supported development environment, though it is not mandatory.  
+The module tutorials (see bellow) and coursework use Python, NumPy and an option between TensorFlow and PyTorch. The [development environment](docs/dev.md) document contains details of the supported development environment, though it is not mandatory.  
 
 
 ## 2. Tutorials
@@ -26,7 +26,7 @@ python train_tf.py
 
 Notes:
 - Each tutorial folder has its own `readme` with any extra dependencies or data.
-- `*_pt` scripts use PyTorch, `*_tf` scripts use TensorFlow 2.
+- `*_pt.py` scripts use PyTorch, `*_tf.py` scripts use TensorFlow 2.
 - Visual outputs are saved to files, no GUI required.
 
 
