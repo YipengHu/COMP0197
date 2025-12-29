@@ -43,7 +43,7 @@ An example of generated text (they do not make sense with this a small-scale dem
 ```bash
 >>> python test_tf.py
 ROMEO:
-With tingued in of thy fold ang's my jove.
+With tingued in of thy fold angs my jove.
 Ray, Cut How, whout:
 Be sine mack the nad so be hintith.
 
