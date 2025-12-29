@@ -38,7 +38,7 @@ micromamba activate comp0197
 - `test_tf.py`  
   Loads weights + meta and generates text from a prompt.
 
-An example of generated text (they do not make sense with this a small-scale demo, but feel Shakespearean):
+An example of generated text (they do not make much sense with this being a small-scale demo, but feel Shakespearean):
 
 ```bash
 >>> python test_tf.py
