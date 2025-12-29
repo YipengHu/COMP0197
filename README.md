@@ -12,8 +12,8 @@ Create a micromamba environment `comp0197` and install PyTorch and/or TensorFlow
 ``` bash
 micromamba create --name comp0197 python=3.12 -y 
 micromamba activate comp0197 
-pip install torch torchvision torchaudio 
-pip install tensorflow 
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu 
+pip install tensorflow-cpu 
 ```
 
 Go to a tutorial folder and run the training script:
