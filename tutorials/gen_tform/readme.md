@@ -37,3 +37,28 @@ micromamba activate comp0197
   Trains the model and saves TensorFlow weights + `ckpt_tf_meta.json`.
 - `test_tf.py`  
   Loads weights + meta and generates text from a prompt.
+
+An example of generated text (they do not make sense with this a small-scale demo, but feel Shakespearean):
+
+```bash
+>>> python test_tf.py
+ROMEO:
+With tingued in of thy fold ang's my jove.
+Ray, Cut How, whout:
+Be sine mack the nad so be hintith.
+
+Servize:
+I livestiond love the mere the comers, moak,
+I hatte laygend, and wo mingook.
+
+WANGORD II:
+I a that is whys as hery it thou speell, beit,
+Your liied of a ming the firent.
+
+CARIUS:
+And agaimiiend, not, be the tuze, in is thee brove,
+Os this that son to nest,
+Isep with wich that the beingst for nowst:
+In you thou the is cwad now, her sovive madter,
+For me andlare to faitin; for, it your he
+```
