@@ -1,4 +1,4 @@
-# Minimal Transformer Tutorials 
+# Transformer Tutorials for Generative Models 
 
 This folder contains two self-contained, minimal implementations of a decoder-only Transformer (GPT-style) with causal self-attention for character-level language modelling.
 
@@ -10,10 +10,6 @@ Both versions:
 - load the trained model and generate text.
 
 ## Requirements
-
-- Python 3.9+ recommended
-- Install frameworks (CPU is fine):
-
 ```bash
 micromamba activate comp0197 
 ```
